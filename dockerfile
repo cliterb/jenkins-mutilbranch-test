@@ -11,15 +11,5 @@ RUN mkdir templates
 WORKDIR /k8sdaemon/templates
 COPY ./index.html ./
 
-WORKDIR /k8sdaemon/k8sdaemon
-RUN mkdir app
-COPY ./settings.py ./
-COPY ./urls.py ./
-
-WORKDIR /k8sdaemon/k8sdaemon/app
-COPY ./__init__.py ./
-COPY ./view.py ./
-
-
 WORKDIR /k8sdaemon
 ENTRYPOINT python manage.py runserver 0.0.0.0:80
