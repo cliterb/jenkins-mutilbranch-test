@@ -1,9 +1,4 @@
-#!groovy 
-// -*- mode: groovy -*- 
-node { 
-    sh 'env > env.txt' 
-    sh 'echo hello' 
-    readFile('env.txt').split("\r?\n").each { 
-        println it 
-    } 
-} 
+#!groovy
+node {
+    sh 'sudo docker build -t harbor.shopeemobile.com/shopee/k8sdaemon:1.0 .'
+}
