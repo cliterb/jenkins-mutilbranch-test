@@ -1,10 +1,4 @@
-#!groovy 
-// -*- mode: groovy -*- 
-node { 
-    //sh 'env > env.txt' 
-    //sh 'echo hello' 
-    //readFile('env.txt').split("\r?\n").each { 
-    //    println it 
-    //}
-    sh 'cat index.html'
-} 
+#!groovy
+node {
+    sh 'sudo docker build -t $IMAGE_NAME:$IMAGE_TAG .'
+}
