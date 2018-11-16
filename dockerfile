@@ -1,12 +1,7 @@
-FROM python-base
+MAINTAINER can.gao<cliterb_gao@gmail.com>
+FROM k8sdeamon:1.0
 
 EXPOSE 80
-
-WORKDIR /
-RUN django-admin.py startproject k8sdaemon
-
-WORKDIR /k8sdaemon
-RUN mkdir templates
 
 WORKDIR /k8sdaemon/templates
 COPY ./index.html ./
