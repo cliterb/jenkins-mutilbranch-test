@@ -1,4 +1,4 @@
 #!groovy
 node {
-    sh 'sudo docker build -t $IMAGE_NAME:$IMAGE_TAG .'
+    sh 'sudo docker build -t $Docker_registry/$Docker_project:$BUILD_TAG  .'
 }
