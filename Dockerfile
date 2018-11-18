@@ -1,5 +1,5 @@
-MAINTAINER can.gao<cliterb_gao@gmail.com>
 FROM k8sdeamon:1.0
+MAINTAINER can.gao<cliterb_gao@gmail.com>
 
 EXPOSE 80
 
