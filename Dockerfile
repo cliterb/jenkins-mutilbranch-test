@@ -7,4 +7,4 @@ WORKDIR /k8sdaemon/templates
 COPY ./index.html ./
 
 WORKDIR /k8sdaemon
-ENTRYPOINT python manage.py runserver 0.0.0.0:80
+ENTRYPOINT python manage.py runserver 0.0.0.0:$PORT
