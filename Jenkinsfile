@@ -1,4 +1,9 @@
 #!groovy
 node {
-    checkout scm
+    stage('Setup'){
+        checkout scm
+    }
+    
+    stage('docker-build'){
+    }
 }
