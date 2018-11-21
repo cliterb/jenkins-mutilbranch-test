@@ -8,7 +8,7 @@ node {
     stage('Build'){
         /*拉取当前分支的内容*/
         checkout scm
-        def customImage = docker.build("$Docker_registry/$Docker_project/k8sdeamon:${params.VERSION}")
+        def customImage = docker.build("$Docker_project/k8sdeamon:${params.VERSION}")
         
         /* Docker Registry */
         docker.withRegistry('https://$Docker_registry', 'registrycredentials-id') {
