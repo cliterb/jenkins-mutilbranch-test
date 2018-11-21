@@ -11,7 +11,7 @@ node {
         def customImage = docker.build("$Docker_registry/$Docker_project/$JOB_NAME:${params.VERSION}")
         
         /* Docker Registry */
-        docker.withRegistry('https://$Docker_registry/', 'docker-registry') {
+        docker.withRegistry('https://$Docker_registry', 'registrycredentials-id') {
             /* Push the container to the harbor */
             customImage.push()
             customImage.push('latest')
