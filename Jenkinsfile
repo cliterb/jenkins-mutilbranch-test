@@ -22,6 +22,7 @@ node {
     stage('deploy'){
         def imagename = "$Docker_registry/$Docker_project/k8sdeamon:${params.VERSION}"
         sh "sed -i 's!image_name!$imagename!g' deploy.json"
+        sh "sed -i 's!project_name!$JOB_NAME!g' deploy.json"
         sh 'curl -X POST -H "Content-type: application/json" -d@deploy.json http://10.12.76.200:8080/v2/apps'
     }
 }
