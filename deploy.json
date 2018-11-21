@@ -1,0 +1,29 @@
+{
+  "id": "/k8sdeamon",
+  "cpus": 0.4,
+  "mem": 64,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "forcePullImage": false,
+      "image": "harbor.shopeemobile.com/shopee/k8sdeamon:1.1",
+      "parameters": [],
+      "privileged": false
+    },
+    "volumes": []
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "maxConsecutiveFailures": 3,
+      "path": "/",
+      "portIndex": 0,
+      "protocol": "MESOS_HTTP",
+      "ipProtocol": "IPv4",
+      "timeoutSeconds": 20,
+      "delaySeconds": 15
+    }
+  ]
+}
