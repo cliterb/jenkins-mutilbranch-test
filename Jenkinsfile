@@ -1,9 +1,18 @@
 #!groovy
-node {
-    stage('Setup'){
-        checkout scm
+pipeline any {
+    agent any
+    
+    stages {
+        stage('Setup'){
+            steps{
+                checkout scm
+            }
+        }
+
+        stage('docker-build'){
+            steps{
+            }
+        }
     }
     
-    stage('docker-build'){
-    }
 }
