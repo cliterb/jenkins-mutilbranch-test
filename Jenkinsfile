@@ -12,11 +12,11 @@ node {
         
         /* Docker Registry */
         /*push前会进行docker tag,所以在docker build的时候不要写registry URL*/
-        docker.withRegistry('https://$Docker_registry', 'registrycredentials-id') {
+        /*docker.withRegistry('https://$Docker_registry', 'registrycredentials-id') {*/
             /* Push the container to the harbor */
-            customImage.push()
-            customImage.push('latest')
-        }
+            /*customImage.push()*/
+            /*customImage.push('latest')*/
+        }*/
     }
     
     stage('deploy'){
