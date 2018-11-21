@@ -8,7 +8,7 @@ node {
     stage('Build'){
         /*拉取当前分支的内容*/
         checkout scm
-        def customImage = docker.build("$Docker_registry/$Docker_project/$JOB_NAME:${params.VERSION}")
+        def customImage = sudo docker.build("$Docker_registry/$Docker_project/$JOB_NAME:${params.VERSION}")
         
         /* Docker Registry */
         docker.withRegistry('https://$Docker_registry', 'registrycredentials-id') {
