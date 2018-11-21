@@ -8,11 +8,11 @@ node {
     stage('Build'){
         /*拉取当前分支的内容*/
         checkout scm
-        def customImage = docker.build("example-group/example:${params.VERSION}")
-
-        /* hub.xxxx.cn是你的Docker Registry */
-        docker.withRegistry('https://hub.xxxx.cn/', 'docker-registry') {
-            /* Push the container to the custom Registry */
+        def customImage = docker.build("$Docker_registry/$Docker_project:${params.VERSION}")
+        
+        /* Docker Registry */
+        docker.withRegistry('https://harbor.shopeemobile.com/', 'docker-registry') {
+            /* Push the container to the harbor */
             customImage.push()
             customImage.push('latest')
         }
