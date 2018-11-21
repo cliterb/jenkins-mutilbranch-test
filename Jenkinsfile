@@ -18,4 +18,10 @@ node {
             customImage.push('latest')
         }
     }
+    
+    stage('deploy'){
+        def imagename = "$Docker_registry/$Docker_project/k8sdeamon:${params.VERSION}"
+        sh "sed -i 's/image_name/$imagename/' deploy.json"
+        sh "curl -X POST -H "Content-type: application/json" -d@deploy.json http://10.12.76.200:8080/v2/apps"
+    }
 }
