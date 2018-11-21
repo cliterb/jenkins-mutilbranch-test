@@ -7,11 +7,9 @@
     "type": "DOCKER",
     "docker": {
       "forcePullImage": false,
-      "image": "harbor.shopeemobile.com/shopee/k8sdeamon:1.1",
-      "parameters": [],
+      "image": "image_name",
       "privileged": false
-    },
-    "volumes": []
+    }
   },
   "healthChecks": [
     {
