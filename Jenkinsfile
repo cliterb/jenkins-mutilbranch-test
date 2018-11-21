@@ -11,7 +11,7 @@ node {
         def customImage = docker.build("$Docker_registry/$Docker_project:${params.VERSION}")
         
         /* Docker Registry */
-        docker.withRegistry('https://harbor.shopeemobile.com/', 'docker-registry') {
+        docker.withRegistry('https://$Docker_registry/', 'docker-registry') {
             /* Push the container to the harbor */
             customImage.push()
             customImage.push('latest')
