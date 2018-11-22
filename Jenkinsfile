@@ -15,7 +15,7 @@ node {
         docker.withRegistry('https://$Docker_registry', 'registrycredentials-id') {
             /* Push the container to the harbor */
             customImage.push()
-            customImage.push('latest')
+            /* customImage.push('latest') */
         }
     }
 }
