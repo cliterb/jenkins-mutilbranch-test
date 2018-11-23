@@ -19,6 +19,10 @@ node {
         }
     }
     
+    stage('uploadCDN'){
+        sh 'sh /var/lib/jenkins/scripts/cdn_upload/upload.sh $JOB_NAME  a11221152.txt'
+    }
+    
     stage('deploy'){
         def imagename = "$Docker_registry/$Docker_project/k8sdeamon:${params.VERSION}"
         sh "sed -i 's!image_name!$imagename!g' deploy.json"
