@@ -19,6 +19,10 @@ node {
         }
     }
     
+    stage('docker-command'){
+        sh 'sudo python /var/lib/jenkins/scripts/docker_command/get_containerID.py "multibranchcangao" "env" '
+    }
+    
     stage('deploy'){
         def imagename = "$Docker_registry/$Docker_project/k8sdeamon:${params.VERSION}"
         sh "sed -i 's!image_name!$imagename!g' deploy.json"
