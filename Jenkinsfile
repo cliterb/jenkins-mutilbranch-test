@@ -19,10 +19,6 @@ node {
         }
     }
     
-    stage('uploadCDN'){
-        sh 'sudo sh /var/lib/jenkins/scripts/cdn_upload/upload.sh multibranchtest11231200  a11221152.txt'
-    }
-    
     stage('deploy'){
         def imagename = "$Docker_registry/$Docker_project/k8sdeamon:${params.VERSION}"
         sh "sed -i 's!image_name!$imagename!g' deploy.json"
