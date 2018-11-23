@@ -1,0 +1,35 @@
+{
+  "id": "multibranchcangao",
+  "cpus": 0.5,
+  "mem": 128,
+  "instances": 2,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "forcePullImage": false,
+      "image": "image_name",
+      "privileged": false
+    }
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "ignoreHttp1xx": false,
+      "intervalSeconds": 60,
+      "maxConsecutiveFailures": 3,
+      "path": "/",
+      "portIndex": 0,
+      "protocol": "HTTP",
+      "ipProtocol": "IPv4",
+      "timeoutSeconds": 20,
+      "delaySeconds": 15
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 0,
+      "name": "nginx",
+      "protocol": "tcp"
+    }
+  ]
+}
