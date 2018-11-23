@@ -15,7 +15,17 @@ node {
         docker.withRegistry('https://$Docker_registry', 'registrycredentials-id') {
             /* Push the container to the harbor */
             customImage.push()
-            /* customImage.push('latest') */
+            /*customImage.push('latest')*/
         }
+    }
+    
+    stage('uploadCDN'){
+        sh 'sudo sh /var/lib/jenkins/scripts/cdn_upload/upload.sh multibranchtest11231200  a11221152.txt'
+    }
+    
+    stage('deploy'){
+        def imagename = "$Docker_registry/$Docker_project/k8sdeamon:${params.VERSION}"
+        sh "sed -i 's!image_name!$imagename!g' deploy.json"
+        sh 'curl -X POST -H "Content-type: application/json" -d@deploy.json http://10.12.76.200:8080/v2/apps'
     }
 }
