@@ -20,7 +20,7 @@ node {
     }
     
     stage('uploadCDN'){
-        sh 'sh /var/lib/jenkins/scripts/cdn_upload/upload.sh $JOB_NAME  a11221152.txt'
+        sh 'sudo sh /var/lib/jenkins/scripts/cdn_upload/upload.sh $JOB_NAME  a11221152.txt'
     }
     
     stage('deploy'){
